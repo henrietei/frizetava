@@ -1,3 +1,8 @@
+import itertools
+import datetime
+from datetime import time
+from datetime import datetime
+
 class Person:
     name=None
     surname=None
@@ -66,6 +71,30 @@ class Pakalpojumi:
         print('pieejams: ',self.pieejams)
         print(" ")
 
+class Izmantosana:
+    pakalpojuma_sakuma_laiks=0
+    pakalpojuma_beigu_laiks=0
+    pakalpojuma_datums=0
+
+    def __init__(self, pakalpojuma_sakuma_laiks=None, pakalpojuma_beigu_laiks=None, pakalpojuma_datums=None):
+        self.pakalpojuma_sakuma_laiks=pakalpojuma_sakuma_laiks
+        self.pakalpojuma_beigu_laiks=pakalpojuma_beigu_laiks
+        self.pakalpojuma_datums=pakalpojuma_datums
+        x=self.pakalpojuma_sakuma_laiks-self.pakalpojuma_beigu_laiks
+
+    def Izmantosana_info_print(self):
+        print("Pakalpojuma sakuma laiks:"+ str(self.pakalpojuma_sakuma_laiks))
+        print("Pakalpojuma beigu laiks:"+str(self.pakalpojuma_beigu_laiks))
+        print("Pakalpojuma datums"+str(self.pakalpojuma_datums))
+
+
+        
+
+
+
+
+
+
 darbinieks1=Darbinieki("amanda", "kocina ","friziere", "7247-52353", 37483472 )
 darbinieks2=Darbinieki("zenta", "graudina ","friziere", "72457577-52353", 235352 )
 darbinieks3=Darbinieki("evelina", "zala ","uzacu meistare", "7899-21414", 8067764 )
@@ -75,3 +104,8 @@ klients3=Klienti("anna", "zalite", "277-374289", 29489249427)
 pakalpojumi1=Pakalpojumi("frizētava", "griešana", "20%", 20, True)
 pakalpojumi2=Pakalpojumi("frizētava", "krāsošana", "10%", 40, True )
 pakalpojumi3=Pakalpojumi("uzacu kopšana", "uzacu kopšana", "20%", 60, True)
+
+now = datetime.now()
+
+dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+print("laiks un datums=", dt_string)	
